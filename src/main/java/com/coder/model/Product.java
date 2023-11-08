@@ -34,6 +34,10 @@ public class Product {
 	
 	private int discountPersent;
 	
+	private int discountedPrice;
+	
+	
+
 	private int quantity;
 	
 	private String brand;
@@ -66,15 +70,16 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(Long id, String title, String description, int price, int discountPersent, int quantity,
-			String brand, String color, Set<Size> sizes, String imageUrl, List<Rating> ratings, List<Review> reviews,
-			int numRatings, Category category, LocalDateTime createdAt) {
+	public Product(Long id, String title, String description, int price, int discountPersent, int discountedPrice,
+			int quantity, String brand, String color, Set<Size> sizes, String imageUrl, List<Rating> ratings,
+			List<Review> reviews, int numRatings, Category category, LocalDateTime createdAt) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.price = price;
 		this.discountPersent = discountPersent;
+		this.discountedPrice = discountedPrice;
 		this.quantity = quantity;
 		this.brand = brand;
 		this.color = color;
@@ -87,6 +92,7 @@ public class Product {
 		this.createdAt = createdAt;
 	}
 
+
 	public Long getId() {
 		return id;
 	}
@@ -94,6 +100,7 @@ public class Product {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 
 	public String getTitle() {
 		return title;
@@ -126,6 +133,15 @@ public class Product {
 	public void setDiscountPersent(int discountPersent) {
 		this.discountPersent = discountPersent;
 	}
+
+	public int getDiscountedPrice() {
+		return discountedPrice;
+	}
+
+	public void setDiscountedPrice(int discountedPrice) {
+		this.discountedPrice = discountedPrice;
+	}
+	
 
 	public int getQuantity() {
 		return quantity;
