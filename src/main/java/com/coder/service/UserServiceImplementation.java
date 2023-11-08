@@ -1,5 +1,7 @@
 package com.coder.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.coder.config.JwtProvider;
@@ -21,14 +23,27 @@ public class UserServiceImplementation implements UserService{
 
 	@Override
 	public User findUserById(Long userId) throws UserException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Optional<User> user = userRepository.findById(userId);
+		if(user.isPresent()) {
+			return user.get();
+		}
+		
+		throw new UserException("User not found with id: " +userId);
 	}
 
 	@Override
 	public User findUserProfileByJwt(String jwt) throws UserException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String email = jwtProvider.getEmailFromToken(jwt);
+		
+		User user = userRepository.findByEmail(email);
+		
+		if(user == null ) {
+			throw new UserException("User not found with email "+email);
+		}
+		
+		return user;
 	}
 
 }
