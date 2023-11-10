@@ -123,8 +123,10 @@ public class ProductServiceImplementation implements ProductService{
 
 	@Override
 	public List<Product> findProductByCategory(String category) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		System.out.println("Category----"+category);
+		List<Product> products = productRepository.findByCategory(category);
+		return products;
 	}
 
 	@Override
@@ -157,6 +159,20 @@ public class ProductServiceImplementation implements ProductService{
 		Page<Product> filteredProducts = new PageImpl<>(pageContent, pageable,products.size());
 		
 		return filteredProducts;
+	}
+
+	@Override
+	public List<Product> searchProduct(String query) {
+		
+		List<Product> products = productRepository.searchProduct(query);
+		
+		return products;
+	}
+
+	@Override
+	public List<Product> getAllProducts() {
+		
+		return productRepository.findAll();
 	}
 
 }
