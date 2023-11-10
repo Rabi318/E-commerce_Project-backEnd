@@ -30,21 +30,21 @@ public class OrderServiceImplementation implements OrderService{
 	private CartService cartService;
 	private AddressRepository addressRepository;
 	private UserRepository userRepository;
-	private OrderItemService orderItemService;
+	
 	private OrderItemRepository orderItemRepository;
 	
 	
 	
 	
 	public OrderServiceImplementation(OrderRepository orderRepository, CartService cartService,
-			AddressRepository addressRepository, UserRepository userRepository, OrderItemService orderItemService,
+			AddressRepository addressRepository, UserRepository userRepository, 
 			OrderItemRepository orderItemRepository) {
 		super();
 		this.orderRepository = orderRepository;
 		this.cartService = cartService;
 		this.addressRepository = addressRepository;
 		this.userRepository = userRepository;
-		this.orderItemService = orderItemService;
+		
 		this.orderItemRepository = orderItemRepository;
 	}
 
