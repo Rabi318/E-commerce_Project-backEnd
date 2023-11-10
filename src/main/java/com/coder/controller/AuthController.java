@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.coder.model.Cart;
 import com.coder.model.User;
 import com.coder.config.JwtProvider;
 import com.coder.exception.UserException;
 import com.coder.repository.UserRepository;
 import com.coder.request.LoginRequest;
 import com.coder.response.AuthResponse;
+import com.coder.service.CartService;
 import com.coder.service.CustomeUserServiceImplementation;
 
 @RestController
@@ -32,11 +35,14 @@ public class AuthController {
 	
 	private UserRepository userRepository;
 	
-	public AuthController(UserRepository userRepository, CustomeUserServiceImplementation customeUserServiceImplementation, PasswordEncoder passwordEncoder, JwtProvider jwtProvider) {
+	private CartService cartService;
+	
+	public AuthController(UserRepository userRepository,CartService cartService, CustomeUserServiceImplementation customeUserServiceImplementation, PasswordEncoder passwordEncoder, JwtProvider jwtProvider) {
 		this.userRepository =  userRepository;
 		this.customeUserServiceImplementation = customeUserServiceImplementation;
 		this.passwordEncoder = passwordEncoder;
 		this.jwtProvider = jwtProvider;
+		this.cartService=cartService;
 	}
   
 	@PostMapping("/signup")
@@ -63,6 +69,7 @@ public class AuthController {
 	     createdUser.setLastName(lastName);
 	     
 	     User savedUser = userRepository.save(createdUser);
+	     Cart cart = cartService.createCart(savedUser);
 	     
 	     Authentication authentication = new UsernamePasswordAuthenticationToken(savedUser.getEmail(), savedUser.getPassword());
 	     

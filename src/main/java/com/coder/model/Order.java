@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.coder.user.domain.OrderStatus;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -48,7 +50,7 @@ public class Order {
 	
 	private Integer discounte;
 	
-	private String orderStatus;
+	private OrderStatus orderStatus;
 	
 	private int totalItem;
 	
@@ -63,9 +65,13 @@ public class Order {
 
 	
 	
+	
+
+
+
 	public Order(Long id, String orderId, User user, List<OrderItems> orderItems, LocalDateTime orderDate,
 			LocalDateTime deliveryDate, Address shippingAddress, PaymentDetails paymentDetails, double toatalPrice,
-			Integer totalDiscountedPrice, Integer discounte, String orderStatus, int totalItem,
+			Integer totalDiscountedPrice, Integer discounte, OrderStatus orderStatus, int totalItem,
 			LocalDateTime createdAt) {
 		super();
 		this.id = id;
@@ -86,117 +92,290 @@ public class Order {
 
 
 
+
+
+
+
 	public Long getId() {
 		return id;
 	}
+
+
+
+
+
+
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+
+
+
+
+
+
 	public String getOrderId() {
 		return orderId;
 	}
+
+
+
+
+
+
 
 	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
 
+
+
+
+
+
+
 	public User getUser() {
 		return user;
 	}
+
+
+
+
+
+
 
 	public void setUser(User user) {
 		this.user = user;
 	}
 
+
+
+
+
+
+
 	public List<OrderItems> getOrderItems() {
 		return orderItems;
 	}
+
+
+
+
+
+
 
 	public void setOrderItems(List<OrderItems> orderItems) {
 		this.orderItems = orderItems;
 	}
 
+
+
+
+
+
+
 	public LocalDateTime getOrderDate() {
 		return orderDate;
 	}
+
+
+
+
+
+
 
 	public void setOrderDate(LocalDateTime orderDate) {
 		this.orderDate = orderDate;
 	}
 
+
+
+
+
+
+
 	public LocalDateTime getDeliveryDate() {
 		return deliveryDate;
 	}
+
+
+
+
+
+
 
 	public void setDeliveryDate(LocalDateTime deliveryDate) {
 		this.deliveryDate = deliveryDate;
 	}
 
+
+
+
+
+
+
 	public Address getShippingAddress() {
 		return shippingAddress;
 	}
+
+
+
+
+
+
 
 	public void setShippingAddress(Address shippingAddress) {
 		this.shippingAddress = shippingAddress;
 	}
 
+
+
+
+
+
+
 	public PaymentDetails getPaymentDetails() {
 		return paymentDetails;
 	}
+
+
+
+
+
+
 
 	public void setPaymentDetails(PaymentDetails paymentDetails) {
 		this.paymentDetails = paymentDetails;
 	}
 
+
+
+
+
+
+
 	public double getToatalPrice() {
 		return toatalPrice;
 	}
+
+
+
+
+
+
 
 	public void setToatalPrice(double toatalPrice) {
 		this.toatalPrice = toatalPrice;
 	}
 
+
+
+
+
+
+
 	public Integer getTotalDiscountedPrice() {
 		return totalDiscountedPrice;
 	}
+
+
+
+
+
+
 
 	public void setTotalDiscountedPrice(Integer totalDiscountedPrice) {
 		this.totalDiscountedPrice = totalDiscountedPrice;
 	}
 
+
+
+
+
+
+
 	public Integer getDiscounte() {
 		return discounte;
 	}
+
+
+
+
+
+
 
 	public void setDiscounte(Integer discounte) {
 		this.discounte = discounte;
 	}
 
-	public String getOrderStatus() {
+
+
+
+
+
+
+	public OrderStatus getOrderStatus() {
 		return orderStatus;
 	}
 
-	public void setOrderStatus(String orderStatus) {
+
+
+
+
+
+
+	public void setOrderStatus(OrderStatus orderStatus) {
 		this.orderStatus = orderStatus;
 	}
+
+
+
+
+
+
 
 	public int getTotalItem() {
 		return totalItem;
 	}
 
+
+
+
+
+
+
 	public void setTotalItem(int totalItem) {
 		this.totalItem = totalItem;
 	}
+
+
+
+
+
+
 
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
 
+
+
+
+
+
+
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
+
+
+
+
+
+
+
 	
 	
 }
